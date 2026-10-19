@@ -1,0 +1,2379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arjunarts Studio — Dance & Performing Arts Studio | Kochi, Kerala</title>
+  <meta name="description" content="Arjunarts Studio is a welcoming dance and performing arts studio founded by Vrindha in Panampilly Nagar, Kochi, offering Classical dance, Western dance, workshops, and event choreography.">
+  
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================================================
+       1. CSS RESET & DESIGN TOKENS
+       ========================================================================== */
+    :root {
+      --color-wine-red: #762D40;
+      --color-wine-red-hover: #5d2232;
+      --color-blush-pink: #E9BFC5;
+      --color-warm-cream: #F7F1E8;
+      --color-charcoal: #302B2B;
+      --color-charcoal-muted: #5e5757;
+      --color-white: #FFFFFF;
+      --color-muted-rose: #B87B88;
+      --color-cream-tint: #F1E9DE;
+      --color-error: #9b2c2c;
+      --color-success: #235c3c;
+      
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      
+      --header-height: 96px;
+      --container-max: 1200px;
+      --transition-standard: 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+      --border-thin: 1px solid var(--color-muted-rose);
+      --border-subtle: 1px solid rgba(184, 123, 136, 0.25);
+      --radius-sm: 4px;
+      --radius-md: 8px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      background-color: var(--color-warm-cream);
+      color: var(--color-charcoal);
+    }
+
+    body {
+      font-family: var(--font-sans);
+      line-height: 1.65;
+      font-weight: 400;
+      color: var(--color-charcoal);
+      background-color: var(--color-warm-cream);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Accessibility Focus Styles */
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--color-wine-red);
+      outline-offset: 3px;
+    }
+
+    img, video {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    button {
+      font-family: var(--font-sans);
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color var(--transition-standard);
+    }
+
+    /* Container Utility */
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: clamp(1.25rem, 4vw, 2.5rem);
+      padding-right: clamp(1.25rem, 4vw, 2.5rem);
+    }
+
+    .section-spacing {
+      padding-top: clamp(4.5rem, 8vw, 7.5rem);
+      padding-bottom: clamp(4.5rem, 8vw, 7.5rem);
+    }
+
+    /* ==========================================================================
+       2. TYPOGRAPHY SYSTEM
+       ========================================================================== */
+    h1, h2, h3, h4 {
+      font-family: var(--font-serif);
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--color-charcoal);
+      text-wrap: balance;
+    }
+
+    .display-title {
+      font-size: clamp(2.35rem, 5.5vw, 4.25rem);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3.8vw, 3rem);
+      margin-bottom: 1.25rem;
+    }
+
+    .section-tag {
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--color-wine-red);
+      margin-bottom: 0.75rem;
+      display: inline-block;
+    }
+
+    .lead-text {
+      font-size: clamp(1.05rem, 1.2vw, 1.2rem);
+      color: var(--color-charcoal-muted);
+      line-height: 1.7;
+      max-width: 48ch;
+    }
+
+    /* ==========================================================================
+       3. BUTTONS & UI ACCENTS
+       ========================================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.85rem;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      border-radius: var(--radius-sm);
+      transition: all var(--transition-standard);
+      text-align: center;
+      min-height: 48px;
+    }
+
+    .btn-primary {
+      background-color: var(--color-wine-red);
+      color: var(--color-white);
+      border: 1px solid var(--color-wine-red);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--color-wine-red-hover);
+      border-color: var(--color-wine-red-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--color-charcoal);
+      border: 1px solid var(--color-charcoal);
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(48, 43, 43, 0.05);
+      border-color: var(--color-wine-red);
+      color: var(--color-wine-red);
+      transform: translateY(-2px);
+    }
+
+    .btn-understated {
+      background-color: transparent;
+      color: var(--color-wine-red);
+      border: 1px solid var(--color-muted-rose);
+      padding: 0.65rem 1.25rem;
+      font-size: 0.82rem;
+    }
+
+    .btn-understated:hover {
+      background-color: var(--color-blush-pink);
+      border-color: var(--color-wine-red);
+    }
+
+    /* Media Frame & Graceful Fallback */
+    .media-frame {
+      position: relative;
+      background-color: var(--color-cream-tint);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: var(--border-subtle);
+    }
+
+    .media-fallback {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+      color: var(--color-muted-rose);
+      background: linear-gradient(135deg, rgba(233,191,197,0.2) 0%, rgba(247,241,232,0.9) 100%);
+      z-index: 1;
+    }
+
+    .media-fallback span {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      color: var(--color-wine-red);
+      margin-top: 0.5rem;
+    }
+
+    .media-frame img, .media-frame video {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      transition: transform 0.6s var(--transition-standard);
+    }
+
+    /* ==========================================================================
+       4. HEADER & LOGO INTEGRATION
+       ========================================================================== */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--header-height);
+      background-color: rgba(247, 241, 232, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: var(--border-subtle);
+      z-index: 1000;
+      transition: background-color var(--transition-standard), box-shadow var(--transition-standard);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .brand-logo {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      padding: 4px 6px;
+      border-radius: var(--radius-sm);
+      transition: transform var(--transition-standard), opacity var(--transition-standard);
+    }
+
+    .brand-logo:hover {
+      transform: translateY(-1px);
+    }
+
+    .brand-img-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 10px;
+      background: #FFFFFF;
+      border: 1px solid rgba(184, 123, 136, 0.35);
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(48, 43, 43, 0.06);
+    }
+
+    .brand-img {
+      height: clamp(52px, 6vw, 68px);
+      width: auto;
+      max-width: 250px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-fallback-wordmark {
+      font-family: var(--font-serif);
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--color-charcoal);
+      line-height: 1;
+    }
+
+    .brand-fallback-wordmark span {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.58rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--color-wine-red);
+      margin-top: 2px;
+    }
+
+    .nav-desktop {
+      display: none;
+    }
+
+    @media (min-width: 960px) {
+      .nav-desktop {
+        display: flex;
+        align-items: center;
+        gap: 1.8rem;
+      }
+    }
+
+    .nav-link {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--color-charcoal);
+      position: relative;
+      padding: 0.4rem 0;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 1px;
+      background-color: var(--color-wine-red);
+      transition: width var(--transition-standard);
+    }
+
+    .nav-link:hover {
+      color: var(--color-wine-red);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 28px;
+      height: 24px;
+      padding: 0;
+      z-index: 1010;
+    }
+
+    @media (min-width: 960px) {
+      .menu-toggle {
+        display: none;
+      }
+    }
+
+    .menu-toggle span {
+      width: 100%;
+      height: 2px;
+      background-color: var(--color-charcoal);
+      border-radius: 2px;
+      transition: transform var(--transition-standard), opacity var(--transition-standard);
+      transform-origin: center;
+    }
+
+    .menu-toggle.is-active span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle.is-active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.is-active span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Mobile Drawer */
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 340px;
+      height: 100vh;
+      background-color: var(--color-warm-cream);
+      box-shadow: -10px 0 30px rgba(48, 43, 43, 0.1);
+      border-left: var(--border-thin);
+      padding: 5rem 2rem 2.5rem;
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1005;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .mobile-drawer.is-open {
+      transform: translateX(0);
+    }
+
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .mobile-nav-links a {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      color: var(--color-charcoal);
+      border-bottom: var(--border-subtle);
+      padding-bottom: 0.4rem;
+    }
+
+    .mobile-drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(48, 43, 43, 0.4);
+      backdrop-filter: blur(2px);
+      z-index: 1002;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .mobile-drawer-backdrop.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ==========================================================================
+       5. HERO SECTION
+       ========================================================================== */
+    .hero-section {
+      padding-top: calc(var(--header-height) + 2rem);
+      padding-bottom: clamp(4rem, 6vw, 6.5rem);
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(2.5rem, 5vw, 5rem);
+      align-items: center;
+    }
+
+    @media (min-width: 960px) {
+      .hero-grid {
+        grid-template-columns: 1.05fr 0.95fr;
+      }
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: var(--color-blush-pink);
+      color: var(--color-wine-red);
+      padding: 0.35rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      width: fit-content;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .hero-media-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .hero-image-frame {
+      width: 100%;
+      border-radius: var(--radius-md);
+      box-shadow: 0 15px 35px rgba(118, 45, 64, 0.1);
+      position: relative;
+      background-color: transparent;
+      overflow: visible;
+      border: none;
+    }
+
+    .hero-image-frame::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      right: -12px;
+      width: 100%;
+      height: 100%;
+      border: 1.5px solid var(--color-blush-pink);
+      border-radius: var(--radius-md);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero-image-frame img {
+      position: relative;
+      width: 100%;
+      height: auto;
+      max-height: 640px;
+      object-fit: contain;
+      border-radius: var(--radius-md);
+      display: block;
+      z-index: 2;
+      box-shadow: 0 8px 24px rgba(48, 43, 43, 0.08);
+    }
+
+    /* ==========================================================================
+       6. ABOUT SECTION
+       ========================================================================== */
+    .about-section {
+      background-color: var(--color-white);
+      border-top: var(--border-subtle);
+      border-bottom: var(--border-subtle);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(2.5rem, 5vw, 5rem);
+      align-items: center;
+    }
+
+    @media (min-width: 900px) {
+      .about-grid {
+        grid-template-columns: 0.9fr 1.1fr;
+      }
+    }
+
+    .about-quote {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+      font-style: italic;
+      line-height: 1.35;
+      color: var(--color-wine-red);
+      border-left: 3px solid var(--color-muted-rose);
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text p {
+      margin-bottom: 1.25rem;
+      color: var(--color-charcoal-muted);
+      font-size: 1.02rem;
+    }
+
+    /* ==========================================================================
+       7. DANCE CLASSES
+       ========================================================================== */
+    .classes-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto clamp(3rem, 5vw, 4.5rem);
+    }
+
+    .class-editorial-block {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: center;
+      margin-bottom: clamp(3.5rem, 6vw, 5rem);
+    }
+
+    .class-editorial-block:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (min-width: 900px) {
+      .class-editorial-block {
+        grid-template-columns: 1fr 1fr;
+      }
+      .class-editorial-block.reversed {
+        direction: rtl;
+      }
+      .class-editorial-block.reversed > * {
+        direction: ltr;
+      }
+    }
+
+    .class-media {
+      aspect-ratio: 16 / 11;
+      width: 100%;
+    }
+
+    .class-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .class-details h3 {
+      font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+    }
+
+    .class-details p {
+      color: var(--color-charcoal-muted);
+      font-size: 1.02rem;
+    }
+
+    /* ==========================================================================
+       8. EVENTS & CELEBRATIONS
+       ========================================================================== */
+    .events-section {
+      background-color: var(--color-cream-tint);
+      border-top: var(--border-subtle);
+      border-bottom: var(--border-subtle);
+    }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 800px) {
+      .events-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .event-card {
+      background-color: var(--color-white);
+      border-radius: var(--radius-md);
+      padding: clamp(2rem, 3.5vw, 2.75rem);
+      border: var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      position: relative;
+      transition: transform var(--transition-standard), border-color var(--transition-standard);
+    }
+
+    .event-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--color-muted-rose);
+    }
+
+    .event-card h3 {
+      font-size: 1.85rem;
+      margin-bottom: 1rem;
+    }
+
+    .event-card p {
+      color: var(--color-charcoal-muted);
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .card-footer {
+      margin-top: auto;
+    }
+
+    /* ==========================================================================
+       8B. WORKSHOPS & ANNOUNCEMENTS (PIC | VIDEO) - REFINED
+       ========================================================================== */
+    .workshops-section {
+      background-color: var(--color-white);
+      border-bottom: var(--border-subtle);
+    }
+
+    .workshops-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(2rem, 4vw, 3rem);
+      align-items: stretch;
+    }
+
+    @media (min-width: 900px) {
+      .workshops-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .workshop-media-card {
+      background-color: var(--color-warm-cream);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      box-shadow: 0 4px 18px rgba(48, 43, 43, 0.04);
+      transition: transform var(--transition-standard), box-shadow var(--transition-standard);
+    }
+
+    .workshop-media-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(118, 45, 64, 0.08);
+    }
+
+    /* Standardized Container for Full Uncropped Media View */
+    .workshop-media-box {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      position: relative;
+      background: radial-gradient(circle at center, #2e2628 0%, #171314 100%);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (min-width: 900px) {
+      .workshop-media-box {
+        aspect-ratio: 16 / 11;
+        min-height: 340px;
+      }
+    }
+
+    /* Full-View Flyer Image (no cropping) */
+    .workshop-poster-frame {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      z-index: 2;
+    }
+
+    .workshop-fallback-placeholder {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      background: linear-gradient(145deg, #F9F4ED 0%, #EBD8DD 100%);
+      color: var(--color-charcoal);
+    }
+
+    .workshop-fallback-placeholder .icon-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: rgba(118, 45, 64, 0.08);
+      color: var(--color-wine-red);
+      font-size: 1.4rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .workshop-fallback-placeholder h4 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: var(--color-wine-red);
+      margin-bottom: 0.25rem;
+    }
+
+    .workshop-fallback-placeholder p {
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-charcoal-muted);
+      font-weight: 600;
+    }
+
+    /* Full-View Video Player (no cropping) */
+    .workshop-video-elem {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      z-index: 2;
+      background-color: transparent;
+    }
+
+    .workshop-media-content {
+      padding: 1.75rem clamp(1.25rem, 3vw, 2rem) 2rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .workshop-meta-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.85rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .workshop-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      color: var(--color-wine-red);
+      background-color: var(--color-blush-pink);
+      padding: 0.3rem 0.7rem;
+      border-radius: 4px;
+    }
+
+    .workshop-date-pill {
+      font-size: 0.8rem;
+      color: var(--color-charcoal-muted);
+      font-weight: 600;
+    }
+
+    .workshop-media-content h3 {
+      font-size: 1.65rem;
+      margin-bottom: 0.75rem;
+      color: var(--color-charcoal);
+    }
+
+    .workshop-media-content p {
+      color: var(--color-charcoal-muted);
+      font-size: 0.98rem;
+      line-height: 1.65;
+      margin-bottom: 1.75rem;
+    }
+
+    /* ==========================================================================
+       9. GENERAL STUDIO GALLERY & LIGHTBOX
+       ========================================================================== */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 992px) {
+      .gallery-grid {
+        grid-template-columns: repeat(12, 1fr);
+      }
+      .gallery-item:nth-child(1) { grid-column: span 7; }
+      .gallery-item:nth-child(2) { grid-column: span 5; }
+      .gallery-item:nth-child(3) { grid-column: span 4; }
+      .gallery-item:nth-child(4) { grid-column: span 4; }
+      .gallery-item:nth-child(5) { grid-column: span 4; }
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      background-color: var(--color-cream-tint);
+      min-height: 280px;
+      box-shadow: 0 4px 12px rgba(48, 43, 43, 0.04);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--transition-standard);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.03);
+    }
+
+    .gallery-item-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(48,43,43,0.7) 0%, rgba(48,43,43,0.05) 60%);
+      opacity: 0;
+      transition: opacity var(--transition-standard);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.4rem;
+      color: var(--color-white);
+    }
+
+    .gallery-item-overlay h4 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: var(--color-warm-cream);
+      margin-bottom: 0.15rem;
+    }
+
+    .gallery-item-overlay p {
+      font-size: 0.8rem;
+      color: rgba(247, 241, 232, 0.85);
+      letter-spacing: 0.04em;
+    }
+
+    .gallery-item:hover .gallery-item-overlay,
+    .gallery-item:focus-visible .gallery-item-overlay {
+      opacity: 1;
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(48, 43, 43, 0.95);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .lightbox-modal.is-active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-container {
+      position: relative;
+      max-width: 90vw;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .lightbox-container img {
+      max-height: 75vh;
+      max-width: 100%;
+      object-fit: contain;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .lightbox-caption {
+      color: var(--color-warm-cream);
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    .lightbox-btn {
+      position: absolute;
+      background: rgba(247, 241, 232, 0.15);
+      color: var(--color-warm-cream);
+      border: 1px solid rgba(247, 241, 232, 0.3);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: all var(--transition-standard);
+      z-index: 2010;
+    }
+
+    .lightbox-btn:hover {
+      background: var(--color-wine-red);
+      color: var(--color-white);
+      border-color: var(--color-wine-red);
+    }
+
+    .lightbox-close {
+      top: 1.5rem;
+      right: 1.5rem;
+    }
+
+    .lightbox-prev {
+      left: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-next {
+      right: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    /* ==========================================================================
+       10. FOUNDER SECTION
+       ========================================================================== */
+    .founder-section {
+      background-color: var(--color-warm-cream);
+      border-top: var(--border-subtle);
+      border-bottom: var(--border-subtle);
+    }
+
+    .founder-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(2.5rem, 5vw, 5rem);
+      align-items: center;
+    }
+
+    @media (min-width: 900px) {
+      .founder-grid {
+        grid-template-columns: 0.85fr 1.15fr;
+      }
+    }
+
+    .founder-portrait-frame {
+      aspect-ratio: 3 / 4;
+      width: 100%;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================================
+       11. WORKSHOP POPUP MODAL
+       ========================================================================== */
+    .popup-dialog-backdrop {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(48, 43, 43, 0.75);
+      backdrop-filter: blur(4px);
+      z-index: 3000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+
+    .popup-dialog-backdrop.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .popup-card {
+      background-color: var(--color-warm-cream);
+      border-radius: var(--radius-md);
+      max-width: 540px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      border: var(--border-thin);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+      transform: scale(0.95);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .popup-dialog-backdrop.is-visible .popup-card {
+      transform: scale(1);
+    }
+
+    .popup-close-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 36px;
+      height: 36px;
+      background-color: var(--color-white);
+      border: 1px solid var(--color-blush-pink);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-charcoal);
+      font-size: 1.2rem;
+      z-index: 10;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .popup-close-btn:hover {
+      background-color: var(--color-wine-red);
+      color: var(--color-white);
+    }
+
+    .popup-banner-container {
+      width: 100%;
+      position: relative;
+      background-color: var(--color-cream-tint);
+    }
+
+    .popup-content {
+      padding: 1.75rem 2rem 2rem;
+      text-align: center;
+    }
+
+    /* ==========================================================================
+       12. CONTACT & ENQUIRY SECTION
+       ========================================================================== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(2.5rem, 5vw, 5rem);
+    }
+
+    @media (min-width: 960px) {
+      .contact-grid {
+        grid-template-columns: 0.9fr 1.1fr;
+      }
+    }
+
+    .contact-info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      margin-top: 2rem;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--color-blush-pink);
+      color: var(--color-wine-red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.1rem;
+    }
+
+    .contact-text strong {
+      display: block;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-wine-red);
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-text a {
+      color: var(--color-charcoal);
+      font-size: 1.05rem;
+      font-weight: 500;
+    }
+
+    .contact-text a:hover {
+      color: var(--color-wine-red);
+      text-decoration: underline;
+    }
+
+    /* Operating Hours List */
+    .hours-list {
+      list-style: none;
+      margin-top: 0.35rem;
+      font-size: 0.95rem;
+      color: var(--color-charcoal);
+    }
+
+    .hours-list li {
+      display: flex;
+      justify-content: space-between;
+      max-width: 300px;
+      padding: 0.2rem 0;
+      border-bottom: 1px dashed rgba(184, 123, 136, 0.2);
+    }
+
+    .hours-list li.closed {
+      color: var(--color-wine-red);
+      font-weight: 600;
+    }
+
+    /* Enquiry Form Styling */
+    .form-wrapper {
+      background-color: var(--color-white);
+      border-radius: var(--radius-md);
+      padding: clamp(2rem, 4vw, 3rem);
+      border: var(--border-subtle);
+      box-shadow: 0 10px 30px rgba(118, 45, 64, 0.04);
+    }
+
+    .form-group {
+      margin-bottom: 1.4rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--color-charcoal);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-label .required-indicator {
+      color: var(--color-wine-red);
+      margin-left: 2px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      color: var(--color-charcoal);
+      background-color: var(--color-warm-cream);
+      border: 1px solid rgba(184, 123, 136, 0.35);
+      border-radius: var(--radius-sm);
+      transition: border-color var(--transition-standard), background-color var(--transition-standard);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--color-wine-red);
+      background-color: var(--color-white);
+    }
+
+    .form-control.is-invalid {
+      border-color: var(--color-error);
+      background-color: #fff9f9;
+    }
+
+    .form-error {
+      font-size: 0.8rem;
+      color: var(--color-error);
+      margin-top: 0.35rem;
+      display: none;
+    }
+
+    .form-error.is-active {
+      display: block;
+    }
+
+    .form-feedback {
+      padding: 1rem;
+      border-radius: var(--radius-sm);
+      margin-bottom: 1.25rem;
+      font-size: 0.92rem;
+      display: none;
+    }
+
+    .form-feedback.success {
+      background-color: #edf7ee;
+      color: var(--color-success);
+      border: 1px solid #c7e5cc;
+      display: block;
+    }
+
+    .form-feedback.error {
+      background-color: #fdf2f2;
+      color: var(--color-error);
+      border: 1px solid #f8d7da;
+      display: block;
+    }
+
+    /* ==========================================================================
+       13. FOOTER & ENHANCED FOOTER LOGO
+       ========================================================================== */
+    .site-footer {
+      background-color: var(--color-charcoal);
+      color: var(--color-warm-cream);
+      padding-top: clamp(4rem, 6vw, 5.5rem);
+      padding-bottom: 2.5rem;
+      border-top: 3px solid var(--color-wine-red);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      margin-bottom: 3.5rem;
+    }
+
+    @media (min-width: 600px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: 1.5fr 1fr 1fr 1.3fr;
+      }
+    }
+
+    .footer-logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 1.25rem;
+      text-decoration: none;
+    }
+
+    .footer-logo-card {
+      background: #FFFFFF;
+      padding: 8px 14px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(233, 191, 197, 0.45);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+      transition: transform var(--transition-standard);
+    }
+
+    .footer-logo-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .footer-logo-img {
+      height: 42px;
+      width: auto;
+      max-width: 200px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .footer-brand p {
+      color: rgba(247, 241, 232, 0.7);
+      margin-top: 0.65rem;
+      font-size: 0.92rem;
+      max-width: 32ch;
+    }
+
+    .footer-column h4 {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--color-blush-pink);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-links a {
+      color: rgba(247, 241, 232, 0.75);
+      font-size: 0.92rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--color-white);
+      padding-left: 4px;
+    }
+
+    .footer-hours-list {
+      list-style: none;
+      font-size: 0.88rem;
+      color: rgba(247, 241, 232, 0.8);
+      margin-top: 0.5rem;
+    }
+
+    .footer-hours-list li {
+      display: flex;
+      justify-content: space-between;
+      max-width: 250px;
+      padding: 0.2rem 0;
+      border-bottom: 1px solid rgba(247, 241, 232, 0.08);
+    }
+
+    .footer-hours-list li.closed {
+      color: var(--color-blush-pink);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(247, 241, 232, 0.12);
+      padding-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      text-align: center;
+      font-size: 0.84rem;
+      color: rgba(247, 241, 232, 0.5);
+    }
+
+    @media (min-width: 768px) {
+      .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    /* Respect Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#home" class="brand-logo" aria-label="Arjunarts Studio Home">
+        <div class="brand-img-wrap">
+          <img src="images/arjunarts-logo.png" alt="Arjunarts Studio" class="brand-img" onerror="this.style.display='none'; document.getElementById('headerFallback').style.display='block';">
+          <div id="headerFallback" class="brand-fallback-wordmark" style="display: none;">
+            arjunarts
+            <span>STUDIO</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-desktop" aria-label="Primary Desktop Navigation">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#classes" class="nav-link">Classes</a>
+        <a href="#events" class="nav-link">Events</a>
+        <a href="#workshops" class="nav-link">Workshops</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#contact" class="btn btn-understated" onclick="setEnquiryType('Other')">Enquire</a>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div>
+      <div style="margin-bottom: 2rem;">
+        <div class="brand-img-wrap" style="display: inline-flex; margin-bottom: 10px;">
+          <img src="images/arjunarts-logo.png" alt="Arjunarts Studio" style="height: 50px; width: auto;" onerror="this.style.display='none'; document.getElementById('mobileFallback').style.display='block';">
+          <div id="mobileFallback" class="brand-fallback-wordmark" style="display: none;">
+            arjunarts
+            <span>STUDIO</span>
+          </div>
+        </div>
+        <p style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--color-wine-red); font-weight: 600;">Panampilly Nagar, Kochi</p>
+      </div>
+      <nav class="mobile-nav-links" aria-label="Mobile Navigation">
+        <a href="#home" class="mobile-link">Home</a>
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#classes" class="mobile-link">Classes</a>
+        <a href="#events" class="mobile-link">Events</a>
+        <a href="#workshops" class="mobile-link">Workshops</a>
+        <a href="#gallery" class="mobile-link">Gallery</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+      </nav>
+    </div>
+    <div>
+      <a href="#contact" class="btn btn-primary" style="width: 100%;" onclick="closeMobileMenu();">Get in Touch</a>
+      <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--color-charcoal-muted); text-align: center;">
+        Call: <a href="tel:8714008667" style="color: var(--color-wine-red); font-weight: 600;">8714008667</a>
+      </p>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       HERO SECTION
+       ========================================================================== -->
+  <main id="mainContent">
+    <section class="hero-section" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="hero-badge">Dance & Performing Arts Studio</span>
+          <h1 class="display-title">Where the magic of art comes to life! ✨</h1>
+          <p class="lead-text">
+            Arjunarts Studio is a dedicated space for classical and Western dance, creative expression, workshops, and immersive event performances in Panampilly Nagar, Kochi.
+          </p>
+          <div class="hero-actions">
+            <a href="#classes" class="btn btn-primary">Explore Our World</a>
+            <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+          </div>
+        </div>
+        <div class="hero-media-wrapper">
+          <div class="media-frame hero-image-frame">
+            <div class="media-fallback">
+              <span>Arjunarts Studio</span>
+              <small>Classical & Contemporary Movement</small>
+            </div>
+            <img src="images/hero.jpg" alt="Expressive dance performance at Arjunarts Studio" onerror="this.style.display='none'">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ABOUT ARJUNARTS STUDIO
+         ========================================================================== -->
+    <section class="section-spacing about-section" id="about">
+      <div class="container about-grid">
+        <div class="about-quote-container">
+          <span class="section-tag">About The Studio</span>
+          <h2 class="section-title">A dedicated sanctuary for movement and artistic growth.</h2>
+          <blockquote class="about-quote">
+            "Art is not just technique; it is the rhythm of human expression brought to life with grace and soul."
+          </blockquote>
+        </div>
+        <div class="about-text">
+          <p>
+            Founded by Vrindha and rooted in the cultural heart of Panampilly Nagar, Kochi, Arjunarts Studio exists to nurture artistic expression across diverse forms of movement. 
+          </p>
+          <p>
+            Whether honoring timeless traditions through Indian classical dance or exploring dynamic rhythms through Western forms, our studio welcomes learners, performers, and creative seekers of all backgrounds.
+          </p>
+          <p>
+            From studio training to specialized workshops and stage celebrations, we believe in cultivating an environment that is artistically rigorous, aesthetically warm, and deeply human.
+          </p>
+          <div style="margin-top: 1.5rem;">
+            <a href="#classes" class="btn btn-understated">Discover Our Classes &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         DANCE CLASSES
+         ========================================================================== -->
+    <section class="section-spacing" id="classes">
+      <div class="container">
+        <div class="classes-header">
+          <span class="section-tag">Curated Disciplines</span>
+          <h2 class="section-title">Dance Classes</h2>
+          <p class="lead-text" style="margin: 0 auto;">
+            Two distinct realms of discipline, rhythm, and graceful expression designed to awaken artistic discipline and joyful movement.
+          </p>
+        </div>
+
+        <!-- Classical Dance Block -->
+        <article class="class-editorial-block">
+          <div class="media-frame class-media">
+            <div class="media-fallback">
+              <span>Classical Dance</span>
+              <small>Grace & Tradition</small>
+            </div>
+            <img src="images/classical-dance.avif" alt="Classical Indian dance practitioner performing expressive mudra and posture" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <div class="class-details">
+            <span class="section-tag">Tradition & Expression</span>
+            <h3>Classical Dance</h3>
+            <p>
+              Experience the profound depth, geometry, and storytelling of classical Indian dance. Rooted in disciplined technique, expressional nuance (abhinaya), and intricate rhythm, our classical classes offer a pathway to artistic grace and emotional balance.
+            </p>
+            <div>
+              <a href="#contact" class="btn btn-primary" onclick="setEnquiryType('Dance Classes')">Enquire for Classical</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Western Dance Block -->
+        <article class="class-editorial-block reversed">
+          <div class="media-frame class-media">
+            <div class="media-fallback">
+              <span>Western Dance</span>
+              <small>Energy & Contemporary Rhythm</small>
+            </div>
+            <img src="images/western-dance.avif" alt="Dancer executing an energetic Western dance movement" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <div class="class-details">
+            <span class="section-tag">Rhythm & Freedom</span>
+            <h3>Western Dance</h3>
+            <p>
+              Explore contemporary flow, rhythmic agility, and high-energy choreography. Western dance at Arjunarts Studio emphasizes musicality, body coordination, and liberating physical expression for students seeking modern movement vocabulary.
+            </p>
+            <div>
+              <a href="#contact" class="btn btn-primary" onclick="setEnquiryType('Dance Classes')">Enquire for Western</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         EVENTS & CELEBRATIONS
+         ========================================================================== -->
+    <section class="section-spacing events-section" id="events">
+      <div class="container">
+        <div class="classes-header">
+          <span class="section-tag">Performances & Celebrations</span>
+          <h2 class="section-title">Events & Collaborations</h2>
+          <p class="lead-text" style="margin: 0 auto;">
+            Elevate memorable occasions through curated performances, bespoke stage choreography, and creative artistic direction.
+          </p>
+        </div>
+
+        <div class="events-grid">
+          <!-- Corporate Events -->
+          <div class="event-card">
+            <div>
+              <span class="section-tag">Curated Productions</span>
+              <h3>Corporate Events</h3>
+              <p>
+                From impactful opening acts and themed stage productions to creative workshops for corporate gatherings, Arjunarts Studio partners with organizations to deliver polished, culturally rich artistic performances.
+              </p>
+            </div>
+            <div class="card-footer">
+              <a href="#contact" class="btn btn-secondary" onclick="setEnquiryType('Corporate Events')">Discuss Corporate Event</a>
+            </div>
+          </div>
+
+          <!-- Wedding Events -->
+          <div class="event-card">
+            <div>
+              <span class="section-tag">Celebrations of Love</span>
+              <h3>Wedding Events</h3>
+              <p>
+                Celebrate your milestones with warmth, style, and poise. We offer customized family choreography, couple routines, and captivating live dance acts tailored to reflect your personal story and aesthetic sensibilities.
+              </p>
+            </div>
+            <div class="card-footer">
+              <a href="#contact" class="btn btn-secondary" onclick="setEnquiryType('Wedding Events')">Discuss Wedding Event</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         WORKSHOP ANNOUNCEMENTS (PIC & VIDEO) — FIXED
+         ========================================================================== -->
+    <section class="section-spacing workshops-section" id="workshops">
+      <div class="container">
+        <div class="classes-header">
+          <span class="section-tag">Bulletins & Special Masterclasses</span>
+          <h2 class="section-title">Workshop Announcements</h2>
+          <p class="lead-text" style="margin: 0 auto;">
+            Stay informed about our upcoming seasonal masterclasses, guest artist intensives, and video choreography previews.
+          </p>
+        </div>
+
+        <div class="workshops-grid">
+          <!-- Workshop Announcement: Picture Flyer -->
+          <article class="workshop-media-card">
+            <div class="workshop-media-box">
+              <div class="workshop-fallback-placeholder">
+                <div class="icon-badge">&#128227;</div>
+                <h4>Workshop Announcement</h4>
+                <p>Seasonal Poster & Schedule Flyer</p>
+              </div>
+              <img src="images/workshop.jpg" alt="Special Workshop announcement flyer at Arjunarts Studio" class="workshop-poster-frame" loading="lazy" onerror="this.style.display='none';">
+            </div>
+            <div class="workshop-media-content">
+              <div>
+                <div class="workshop-meta-bar">
+                  <span class="workshop-badge">Upcoming Announcement</span>
+                  <span class="workshop-date-pill">Weekend Intensives</span>
+                </div>
+           
+              <div>
+                <a href="#contact" class="btn btn-primary" style="width: 100%;" onclick="setEnquiryType('Workshops')">Register for Workshop</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Workshop Announcement: Video Preview -->
+          <article class="workshop-media-card">
+            <div class="workshop-media-box">
+              <video class="workshop-video-elem" controls playsinline preload="metadata" poster="images/image_20261019_213935.jpg">
+                <source src="videos/video.mp4" type="video/mp4">
+                <p style="color: var(--color-white); padding: 1rem; text-align: center; font-size: 0.85rem;">
+                  Your browser does not support HTML5 video.
+                </p>
+              </video>
+            </div>
+            <div class="workshop-media-content">
+              <div>
+                <div class="workshop-meta-bar">
+                  <span class="workshop-badge">Video Preview</span>
+                  <span class="workshop-date-pill">Choreography In Motion</span>
+                </div>
+               
+              <div>
+                <a href="#contact" class="btn btn-secondary" style="width: 100%;" onclick="setEnquiryType('Workshops')">Enquire About Video Sessions</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         STUDIO GALLERY (GENERAL ATMOSPHERE & MOVEMENT)
+         ========================================================================== -->
+    <section class="section-spacing" id="gallery">
+      <div class="container">
+        <div class="classes-header">
+          <span class="section-tag">Life at the Studio</span>
+          <h2 class="section-title">Studio Gallery</h2>
+          <p class="lead-text" style="margin: 0 auto;">
+            A glimpse into the daily life, practice rhythms, and creative spirit of Arjunarts Studio.
+          </p>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid">
+          <!-- Gallery Item 1 -->
+          <div class="gallery-item" tabindex="0" role="button" aria-label="Open photo: Movement practice and studio flow" data-full="assets/hero.jpg" data-caption="Moments of focus and dedication in the dance studio">
+            <img src="images/gallery.jpg" alt="Moments of focus and dedication in the dance studio" loading="lazy" onerror="this.src='https://placehold.co/800x600/F1E9DE/762D40?text=Studio+Practice'">
+            <div class="gallery-item-overlay">
+              <h4>Daily Studio Flow</h4>
+              <p>Rehearsal and discipline in motion</p>
+            </div>
+          </div>
+
+          <!-- Gallery Item 2 -->
+          <div class="gallery-item" tabindex="0" role="button" aria-label="Open photo: Expressive technique and classical rhythm" data-full="images/classical-dance.avif" data-caption="Grace, storytelling, and classical nuance in the studio">
+            <img src="images/gallery 1.jpg" alt="Grace, storytelling, and classical nuance in the studio" loading="lazy" onerror="this.src='https://placehold.co/800x600/F1E9DE/762D40?text=Studio+Movement'">
+            <div class="gallery-item-overlay">
+              <h4>Artistic Expression</h4>
+              <p>Focus on rhythm and posture</p>
+            </div>
+          </div>
+
+          <!-- Gallery Item 3 -->
+          <div class="gallery-item" tabindex="0" role="button" aria-label="Open photo: Dynamic movement session" data-full="images/western-dance.avif" data-caption="High energy, contemporary flow, and group training">
+            <img src="images/gallery 2.jpg" alt="High energy, contemporary flow, and group training" loading="lazy" onerror="this.src='https://placehold.co/800x600/F1E9DE/762D40?text=Energy+in+Motion'">
+            <div class="gallery-item-overlay">
+              <h4>Rhythm & Energy</h4>
+              <p>Exploring contemporary freedom</p>
+            </div>
+          </div>
+
+          <!-- Gallery Item 4 -->
+          <div class="gallery-item" tabindex="0" role="button" aria-label="Open photo: Stage collaboration and production" data-full="assets/events.jpg" data-caption="Studio performances and collaborative stage experiences">
+            <img src="images/gallery 4.jpg" alt="Studio performances and collaborative stage experiences" loading="lazy" onerror="this.src='https://placehold.co/800x600/F1E9DE/762D40?text=Stage+Moments'">
+            <div class="gallery-item-overlay">
+              <h4>Stage & Collaboration</h4>
+              <p>Bringing choreography to the audience</p>
+            </div>
+          </div>
+
+          <!-- Gallery Item 5 -->
+          <div class="gallery-item" tabindex="0" role="button" aria-label="Open photo: Studio sanctuary and creative space" data-full="assets/gallery.jpg" data-caption="The creative atmosphere and warmth of Arjunarts Studio">
+            <img src="images/gallery 3.jpg" alt="The creative atmosphere and warmth of Arjunarts Studio" loading="lazy" onerror="this.src='https://placehold.co/800x600/F1E9DE/762D40?text=Studio+Atmosphere'">
+            <div class="gallery-item-overlay">
+              <h4>Studio Atmosphere</h4>
+              <p>A welcoming creative space in Panampilly Nagar</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         FOUNDER SECTION
+         ========================================================================== -->
+    <section class="section-spacing founder-section" id="founder">
+      <div class="container founder-grid">
+        <div class="founder-media">
+          <div class="media-frame founder-portrait-frame">
+            <div class="media-fallback">
+              <span>Vrindha</span>
+              <small>Founder, Arjunarts Studio</small>
+            </div>
+            <img src="images/founder.jpg" alt="Vrindha, Founder of Arjunarts Studio" loading="lazy" onerror="this.style.display='none'">
+          </div>
+        </div>
+        <div class="founder-bio">
+          <span class="section-tag">The Vision</span>
+          <h2 class="section-title">Meet Vrindha</h2>
+          <p class="lead-text" style="margin-bottom: 1.25rem;">
+            Founder & Artistic Director of Arjunarts Studio.
+          </p>
+          <p style="color: var(--color-charcoal-muted); margin-bottom: 1.25rem;">
+            With a sincere commitment to the performing arts, Vrindha established Arjunarts Studio in Panampilly Nagar to serve as an authentic creative haven. Her approach blends respect for foundational discipline with the pure joy of spontaneous creative expression.
+          </p>
+          <p style="color: var(--color-charcoal-muted); margin-bottom: 2rem;">
+            Under her guidance, the studio remains dedicated to mentoring dancers, facilitating artistic collaboration, and bringing thoughtful performing arts to life across Kochi.
+          </p>
+          <a href="#contact" class="btn btn-secondary">Connect with Vrindha</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CONTACT & ENQUIRY SECTION
+         ========================================================================== -->
+    <section class="section-spacing" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-details-block">
+          <span class="section-tag">Let's Connect</span>
+          <h2 class="section-title">Start Your Artistic Journey</h2>
+          <p class="lead-text">
+            Have questions regarding upcoming classes, event choreography, or creative collaborations? We look forward to hearing from you.
+          </p>
+
+          <div class="contact-info-list">
+            <div class="contact-info-item">
+              <div class="contact-icon" aria-hidden="true">&#9742;</div>
+              <div class="contact-text">
+                <strong>Direct Phone</strong>
+                <a href="tel:8714008667">8714008667</a>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-icon" aria-hidden="true">&#9993;</div>
+              <div class="contact-text">
+                <strong>Email Address</strong>
+                <a href="mailto:teamvrindharjun@gmail.com">teamvrindharjun@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-icon" aria-hidden="true">&#9678;</div>
+              <div class="contact-text">
+                <strong>Studio Address</strong>
+                <p style="color: var(--color-charcoal); line-height: 1.5; margin-top: 2px;">
+                  Second Floor, 3rd Cross Road,<br>
+                  Panampilly Nagar, Kochi, Ernakulam,<br>
+                  Kerala 682036
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-icon" aria-hidden="true">&#9719;</div>
+              <div class="contact-text">
+                <strong>Opening Hours</strong>
+                <ul class="hours-list">
+                  <li><span>Sunday</span> <span>10:00 AM – 8:00 PM</span></li>
+                  <li><span>Monday</span> <span>10:00 AM – 8:00 PM</span></li>
+                  <li><span>Tuesday</span> <span>10:00 AM – 8:00 PM</span></li>
+                  <li class="closed"><span>Wednesday</span> <span>Closed</span></li>
+                  <li><span>Thursday</span> <span>10:00 AM – 8:00 PM</span></li>
+                  <li><span>Friday</span> <span>10:00 AM – 8:00 PM</span></li>
+                  <li><span>Saturday</span> <span>10:00 AM – 8:00 PM</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Enquiry Form -->
+        <div class="form-wrapper">
+          <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Send an Enquiry</h3>
+          <p style="color: var(--color-charcoal-muted); font-size: 0.92rem; margin-bottom: 1.5rem;">
+            Please share your details below and we will get back to you promptly.
+          </p>
+
+          <div id="formFeedback" class="form-feedback" role="alert" aria-live="polite"></div>
+
+          <form id="enquiryForm" novalidate>
+            <div class="form-group">
+              <label for="fullName" class="form-label">Full Name <span class="required-indicator">*</span></label>
+              <input type="text" id="fullName" name="fullName" class="form-control" placeholder="e.g. Ananya Menon" required>
+              <span class="form-error" id="nameError">Please enter your full name.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="emailAddress" class="form-label">Email Address <span class="required-indicator">*</span></label>
+              <input type="email" id="emailAddress" name="emailAddress" class="form-control" placeholder="name@example.com" required>
+              <span class="form-error" id="emailError">Please provide a valid email address.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="phoneNumber" class="form-label">Phone Number (Optional)</label>
+              <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="e.g. 9876543210">
+            </div>
+
+            <div class="form-group">
+              <label for="enquiryType" class="form-label">Enquiry Type <span class="required-indicator">*</span></label>
+              <select id="enquiryType" name="enquiryType" class="form-control" required>
+                <option value="Dance Classes">Dance Classes (Classical / Western)</option>
+                <option value="Corporate Events">Corporate Events</option>
+                <option value="Wedding Events">Wedding Events</option>
+                <option value="Workshops">Workshops</option>
+                <option value="Other">Other Enquiries</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="messageText" class="form-label">Message <span class="required-indicator">*</span></label>
+              <textarea id="messageText" name="message" rows="4" class="form-control" placeholder="Tell us how we can assist you..." required></textarea>
+              <span class="form-error" id="messageError">Please share your message or enquiry details.</span>
+            </div>
+
+            <button type="submit" id="submitBtn" class="btn btn-primary" style="width: 100%;">
+              <span id="btnText">Submit Enquiry</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="footer-logo-wrap" aria-label="Arjunarts Studio Home">
+            <div class="footer-logo-card">
+              <img src="images/arjunarts-logo.png" alt="Arjunarts Studio" class="footer-logo-img" onerror="this.style.display='none'; document.getElementById('footerFallback').style.display='block';">
+              <div id="footerFallback" class="brand-fallback-wordmark" style="display: none; color: var(--color-charcoal);">
+                arjunarts
+                <span style="color: var(--color-wine-red);">STUDIO</span>
+              </div>
+            </div>
+          </a>
+          <p>
+            An independent dance and performing arts space in Panampilly Nagar, Kochi. Where the magic of art comes to life through dedicated training and joyful performance.
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#classes">Dance Classes</a></li>
+            <li><a href="#events">Events & Celebrations</a></li>
+            <li><a href="#workshops">Workshops</a></li>
+            <li><a href="#gallery">Studio Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Disciplines & Offerings</h4>
+          <ul class="footer-links">
+            <li><a href="#classes" onclick="setEnquiryType('Dance Classes')">Classical Indian Dance</a></li>
+            <li><a href="#classes" onclick="setEnquiryType('Dance Classes')">Western Dance Forms</a></li>
+            <li><a href="#events" onclick="setEnquiryType('Corporate Events')">Corporate Productions</a></li>
+            <li><a href="#events" onclick="setEnquiryType('Wedding Events')">Wedding Choreography</a></li>
+            <li><a href="#workshops" onclick="setEnquiryType('Workshops')">Special Workshops</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Studio & Hours</h4>
+          <p style="color: rgba(247, 241, 232, 0.75); font-size: 0.92rem; line-height: 1.5; margin-bottom: 0.75rem;">
+            Second Floor, 3rd Cross Road,<br>
+            Panampilly Nagar, Kochi, Kerala 682036
+          </p>
+          <ul class="footer-hours-list">
+            <li><span>Sun, Mon, Tue:</span> <span>10:00 AM – 8:00 PM</span></li>
+            <li class="closed"><span>Wednesday:</span> <span>Closed</span></li>
+            <li><span>Thu, Fri, Sat:</span> <span>10:00 AM – 8:00 PM</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="currentYear"></span> Arjunarts Studio. Founder: Vrindha. All rights reserved.</p>
+        <p>Panampilly Nagar, Kochi, Kerala</p>
+      </div>
+    </div>
+  </footer>
+
+<!-- ==========================================================================
+       WORKSHOP ANNOUNCEMENT POPUP
+       ========================================================================== -->
+  <div class="popup-dialog-backdrop" id="workshopPopup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+    <div class="popup-card" id="popupCard">
+      <button class="popup-close-btn" id="popupCloseBtn" aria-label="Close Announcement">&times;</button>
+      
+      <div class="popup-banner-container" style="position: relative; overflow: hidden; background-color: var(--color-cream-tint);">
+        <!-- Fallback only appears if the image fails or hasn't loaded -->
+        <div id="popupFallback" class="media-fallback" style="display: none; padding: 3rem 1.5rem; text-align: center;">
+          <span style="font-size: 1.5rem; margin-bottom: 0.5rem; display: block; color: var(--color-wine-red); font-family: var(--font-serif);">Arjunarts Studio</span>
+          <p style="font-size: 0.85rem; color: var(--color-charcoal-muted); max-width: 30ch; margin: 0 auto;">
+            Upcoming workshops and seasonal masterclasses in Panampilly Nagar.
+          </p>
+        </div>
+
+        <!-- Image shows cleanly, and reveals fallback only if it fails to load -->
+        <img 
+          src="images/workshop-banner.jpg" 
+          alt="Special Workshop announcement banner at Arjunarts Studio" 
+          style="width: 100%; height: auto; max-height: 55vh; object-fit: contain; display: block;"
+          onerror="this.style.display='none'; document.getElementById('popupFallback').style.display='block';"
+        >
+      </div>
+
+      <div class="popup-content">
+        <h3 id="popupTitle" style="font-size: 1.6rem; margin-bottom: 0.5rem;">Special Workshop Notice</h3>
+        <p style="color: var(--color-charcoal-muted); font-size: 0.92rem; margin-bottom: 1.25rem;">
+          Connect with our team to inquire about current batch schedules, weekend intensives, and guest artist workshops.
+        </p>
+        <a href="#contact" class="btn btn-primary" onclick="closePopup(); setEnquiryType('Workshops');">Enquire About Workshops</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       LIGHTBOX COMPONENT
+       ========================================================================== -->
+  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Image Lightbox Preview">
+    <button class="lightbox-btn lightbox-close" id="lightboxClose" aria-label="Close Lightbox">&times;</button>
+    <button class="lightbox-btn lightbox-prev" id="lightboxPrev" aria-label="Previous Image">&#10094;</button>
+    
+    <div class="lightbox-container">
+      <img id="lightboxImg" src="" alt="">
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+    
+    <button class="lightbox-btn lightbox-next" id="lightboxNext" aria-label="Next Image">&#10095;</button>
+  </div>
+
+  <!-- ==========================================================================
+       JAVASCRIPT APPLICATION LOGIC
+       ========================================================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* --- 1. Dynamic Year --- */
+      const yearEl = document.getElementById('currentYear');
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
+
+      /* --- 2. Mobile Menu Management --- */
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileDrawer = document.getElementById('mobileDrawer');
+      const drawerBackdrop = document.getElementById('drawerBackdrop');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+
+      window.openMobileMenu = function() {
+        if (!mobileDrawer || !drawerBackdrop || !menuToggle) return;
+        mobileDrawer.classList.add('is-open');
+        drawerBackdrop.classList.add('is-visible');
+        menuToggle.classList.add('is-active');
+        menuToggle.setAttribute('aria-expanded', 'true');
+        mobileDrawer.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      };
+
+      window.closeMobileMenu = function() {
+        if (!mobileDrawer || !drawerBackdrop || !menuToggle) return;
+        mobileDrawer.classList.remove('is-open');
+        drawerBackdrop.classList.remove('is-visible');
+        menuToggle.classList.remove('is-active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        mobileDrawer.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      };
+
+      if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+          const isOpen = mobileDrawer && mobileDrawer.classList.contains('is-open');
+          if (isOpen) {
+            closeMobileMenu();
+          } else {
+            openMobileMenu();
+          }
+        });
+      }
+
+      if (drawerBackdrop) {
+        drawerBackdrop.addEventListener('click', closeMobileMenu);
+      }
+
+      mobileLinks.forEach(function(link) {
+        link.addEventListener('click', closeMobileMenu);
+      });
+
+      /* --- 3. Pre-select Enquiry Type from Buttons --- */
+      window.setEnquiryType = function(type) {
+        const select = document.getElementById('enquiryType');
+        if (select) {
+          for (let i = 0; i < select.options.length; i++) {
+            if (select.options[i].value === type) {
+              select.selectedIndex = i;
+              break;
+            }
+          }
+        }
+      };
+
+      /* --- 4. Lightbox Modal Functionality --- */
+      const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+      const lightboxModal = document.getElementById('lightboxModal');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxCaption = document.getElementById('lightboxCaption');
+      const lightboxClose = document.getElementById('lightboxClose');
+      const lightboxPrev = document.getElementById('lightboxPrev');
+      const lightboxNext = document.getElementById('lightboxNext');
+      let currentGalleryIndex = 0;
+      let lastFocusedElement = null;
+
+      function updateLightboxContent() {
+        if (!galleryItems.length || !lightboxImg || !lightboxCaption) return;
+        const item = galleryItems[currentGalleryIndex];
+        const fullSrc = item.getAttribute('data-full');
+        const caption = item.getAttribute('data-caption') || '';
+        lightboxImg.src = fullSrc;
+        lightboxImg.alt = caption;
+        lightboxCaption.textContent = caption;
+      }
+
+      function openLightbox(index) {
+        if (!lightboxModal) return;
+        lastFocusedElement = document.activeElement;
+        currentGalleryIndex = index;
+        updateLightboxContent();
+        lightboxModal.classList.add('is-active');
+        document.body.style.overflow = 'hidden';
+        if (lightboxClose) lightboxClose.focus();
+      }
+
+      function closeLightbox() {
+        if (!lightboxModal) return;
+        lightboxModal.classList.remove('is-active');
+        document.body.style.overflow = '';
+        if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+          lastFocusedElement.focus();
+        }
+      }
+
+      function showNextImage() {
+        if (!galleryItems.length) return;
+        currentGalleryIndex = (currentGalleryIndex + 1) % galleryItems.length;
+        updateLightboxContent();
+      }
+
+      function showPrevImage() {
+        if (!galleryItems.length) return;
+        currentGalleryIndex = (currentGalleryIndex - 1 + galleryItems.length) % galleryItems.length;
+        updateLightboxContent();
+      }
+
+      galleryItems.forEach(function(item, index) {
+        item.addEventListener('click', function() { openLightbox(index); });
+        item.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openLightbox(index);
+          }
+        });
+      });
+
+      if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+      if (lightboxNext) lightboxNext.addEventListener('click', function(e) { e.stopPropagation(); showNextImage(); });
+      if (lightboxPrev) lightboxPrev.addEventListener('click', function(e) { e.stopPropagation(); showPrevImage(); });
+      if (lightboxModal) {
+        lightboxModal.addEventListener('click', function(e) {
+          if (e.target === lightboxModal) closeLightbox();
+        });
+      }
+
+      /* --- 5. Workshop Announcement Popup with localStorage --- */
+      const workshopPopup = document.getElementById('workshopPopup');
+      const popupCard = document.getElementById('popupCard');
+      const popupCloseBtn = document.getElementById('popupCloseBtn');
+      const POPUP_STORAGE_KEY = 'arjunarts_workshop_dismissed_v1';
+
+      function safeStorageGet(key) {
+        try {
+          return localStorage.getItem(key);
+        } catch (e) {
+          return null;
+        }
+      }
+
+      function safeStorageSet(key, value) {
+        try {
+          localStorage.setItem(key, value);
+        } catch (e) {
+          // Gracefully fallback when storage is private/disabled
+        }
+      }
+
+      window.closePopup = function() {
+        if (!workshopPopup) return;
+        workshopPopup.classList.remove('is-visible');
+        document.body.style.overflow = '';
+        safeStorageSet(POPUP_STORAGE_KEY, 'true');
+      };
+
+      if (popupCloseBtn) popupCloseBtn.addEventListener('click', closePopup);
+      if (workshopPopup) {
+        workshopPopup.addEventListener('click', function(e) {
+          if (e.target === workshopPopup) closePopup();
+        });
+      }
+      if (popupCard) {
+        popupCard.addEventListener('click', function(e) { e.stopPropagation(); });
+      }
+
+      // Show popup once on initial visit after brief delay
+      window.addEventListener('load', function() {
+        if (!workshopPopup) return;
+        const isDismissed = safeStorageGet(POPUP_STORAGE_KEY);
+        if (!isDismissed) {
+          setTimeout(function() {
+            workshopPopup.classList.add('is-visible');
+            document.body.style.overflow = 'hidden';
+          }, 1200);
+        }
+      });
+
+      /* --- 6. Global Escape Key Listener for Modals --- */
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          if (lightboxModal && lightboxModal.classList.contains('is-active')) {
+            closeLightbox();
+          } else if (workshopPopup && workshopPopup.classList.contains('is-visible')) {
+            closePopup();
+          } else if (mobileDrawer && mobileDrawer.classList.contains('is-open')) {
+            closeMobileMenu();
+          }
+        }
+      });
+
+      /* --- 7. Form Submission & Client-side Validation --- */
+      const enquiryForm = document.getElementById('enquiryForm');
+      const submitBtn = document.getElementById('submitBtn');
+      const btnText = document.getElementById('btnText');
+      const formFeedback = document.getElementById('formFeedback');
+
+      const nameInput = document.getElementById('fullName');
+      const emailInput = document.getElementById('emailAddress');
+      const messageInput = document.getElementById('messageText');
+
+      const nameError = document.getElementById('nameError');
+      const emailError = document.getElementById('emailError');
+      const messageError = document.getElementById('messageError');
+
+      function validateEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
+
+      const SUBMISSION_CONFIG = {
+        endpointUrl: null, // Set to live Google Apps Script web app URL if available
+        simulateLatencyMs: 900
+      };
+
+      if (enquiryForm) {
+        enquiryForm.addEventListener('submit', async function (e) {
+          e.preventDefault();
+          if (formFeedback) {
+            formFeedback.className = 'form-feedback';
+            formFeedback.style.display = 'none';
+          }
+
+          let isValid = true;
+
+          // Trim input values
+          const nameVal = nameInput ? nameInput.value.trim() : '';
+          const emailVal = emailInput ? emailInput.value.trim() : '';
+          const messageVal = messageInput ? messageInput.value.trim() : '';
+
+          // Validate Full Name
+          if (!nameVal && nameInput && nameError) {
+            nameInput.classList.add('is-invalid');
+            nameError.classList.add('is-active');
+            isValid = false;
+          } else if (nameInput && nameError) {
+            nameInput.classList.remove('is-invalid');
+            nameError.classList.remove('is-active');
+          }
+
+          // Validate Email
+          if ((!emailVal || !validateEmail(emailVal)) && emailInput && emailError) {
+            emailInput.classList.add('is-invalid');
+            emailError.classList.add('is-active');
+            isValid = false;
+          } else if (emailInput && emailError) {
+            emailInput.classList.remove('is-invalid');
+            emailError.classList.remove('is-active');
+          }
+
+          // Validate Message
+          if (!messageVal && messageInput && messageError) {
+            messageInput.classList.add('is-invalid');
+            messageError.classList.add('is-active');
+            isValid = false;
+          } else if (messageInput && messageError) {
+            messageInput.classList.remove('is-invalid');
+            messageError.classList.remove('is-active');
+          }
+
+          if (!isValid) return;
+
+          // Disable button during processing
+          if (submitBtn && btnText) {
+            submitBtn.disabled = true;
+            btnText.textContent = 'Submitting Enquiry...';
+          }
+
+          const phoneInput = document.getElementById('phoneNumber');
+          const typeSelect = document.getElementById('enquiryType');
+
+          const formData = {
+            name: nameVal,
+            email: emailVal,
+            phone: phoneInput ? phoneInput.value.trim() : '',
+            type: typeSelect ? typeSelect.value : 'General',
+            message: messageVal,
+            timestamp: new Date().toISOString()
+          };
+
+          try {
+            if (SUBMISSION_CONFIG.endpointUrl) {
+              const response = await fetch(SUBMISSION_CONFIG.endpointUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+              });
+
+              if (!response.ok) throw new Error('Submission endpoint error');
+              showSuccessState();
+            } else {
+              // Simulated development preview response
+              await new Promise(function(resolve) { setTimeout(resolve, SUBMISSION_CONFIG.simulateLatencyMs); });
+              showSuccessState();
+            }
+          } catch (err) {
+            if (formFeedback) {
+              formFeedback.className = 'form-feedback error';
+              formFeedback.innerHTML = 'Unable to send enquiry automatically. Please contact Arjunarts Studio directly at <a href="tel:8714008667" style="text-decoration:underline; font-weight:600;">8714008667</a> or email <a href="mailto:teamvrindharjun@gmail.com" style="text-decoration:underline; font-weight:600;">teamvrindharjun@gmail.com</a>.';
+              formFeedback.style.display = 'block';
+            }
+          } finally {
+            if (submitBtn && btnText) {
+              submitBtn.disabled = false;
+              btnText.textContent = 'Submit Enquiry';
+            }
+          }
+
+          function showSuccessState() {
+            if (formFeedback) {
+              formFeedback.className = 'form-feedback success';
+              formFeedback.textContent = 'Thank you! Your enquiry has been sent. Vrindha and the Arjunarts Studio team will get in touch with you shortly.';
+              formFeedback.style.display = 'block';
+            }
+            if (enquiryForm) {
+              enquiryForm.reset();
+            }
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
